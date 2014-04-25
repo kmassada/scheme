@@ -1,0 +1,20 @@
+(define newlist '() )
+(define (member atm lst)
+	(cond
+		((null? lst) #f)
+		((eq? atm (car lst)) #t)
+		(else(member atm (cdr lst)))
+	)
+)
+(define (union lsta lstb)
+	(cond
+		((null? lsta) #f)
+		(else 
+			(cond (member ((car lstb) lsta)) (cons (car lstb) newlist))
+			(else (cons (car lstb) newlist))
+		(union(cdr lsta) (cdr lstb)))
+)
+(define (main)
+	(display (union '(1 2 3 4 ) '(4 -1 2 5)))
+)
+(main)

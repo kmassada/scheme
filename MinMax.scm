@@ -1,0 +1,37 @@
+(define mx 0)
+(define mn 100000000000000000)
+;(define (min-list-value lst))
+(define (max-list-value lst)
+	(cond
+		((null? lst) #f)
+		(	else (cond((> (car lst) mx) 
+			;(set! mx (max-list-value (cdr lst)))
+			(set! mx (car lst))
+			))
+		
+		(max-list-value (cdr lst))
+		)
+	)
+)
+(define (min-list-value lst)
+	(cond
+		((null? lst) #f)
+		(	else (cond((< (car lst) mn) 
+			;(set! mn (min-list-value (cdr lst)))
+			(set! mn (car lst))
+			))
+		
+		(min-list-value (cdr lst))
+		)
+	)
+)
+(
+	define (main)
+	
+	(max-list-value '(8 33.5 12))
+	(min-list-value '(8 33.5 12))
+	(display mx)
+	(newline)
+	(display mn)
+)
+(main)
